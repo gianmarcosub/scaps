@@ -34,18 +34,3 @@ network_hosts = scan_network(subnet, do_traceroute)
 for host in network_hosts:
     print(host["ip"] + " - " + host["mac"] + " - " + host["hostname"] + " - " + str(host["traceroute"]))
 
-host = input("Inserire l'indirizzo IP dell'host remoto da scansionare: ")
-
-def scan_host(host):
-    try:
-        result, unans = sr(IP(dst=host)/ICMP(), timeout=5, verbose=0)
-        if len(result) > 0:
-            hostname = gethostbyaddr(host)[0]
-            return {'ip': host, 'hostname': hostname, 'status': 'up'}
-        else:
-            return {'ip': host, 'hostname': "N/A", 'status': 'down'}
-    except Exception as e:
-        return {'ip': host, 'hostname': "N/A", 'status': 'error'}
-
-remote_host = scan_host(host)
-print(remote_host["ip"] + " - " + remote_host["hostname"] + " - " + remote_host["status"])
