@@ -1,1 +1,3 @@
-scaps is a port scanner, need a input for LAN like xxx.xxx.xxx.xxx/CIDR and ask if you want to made traceroute of every ip address, is very fast 
+scaps is a port scanner, need a input for LAN like xxx.xxx.xxx.xxx/CIDR example:192.168.1.1/24 and ask if you want to made traceroute of every ip address, 
+is very fast !!
+need scapy and socket module in python.
